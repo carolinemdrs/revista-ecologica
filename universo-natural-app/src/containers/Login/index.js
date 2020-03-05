@@ -1,11 +1,13 @@
 import React from "react";
-import { connect } from "react-redux";
 import styled from "styled-components";
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import * as firebase from "firebase/app";
-import Header from "../../components/Header"
+import Header from "../../components/Header";
+import { connect } from "react-redux";
+import { push } from "connected-react-router";
+import { routes } from '../Router';
 
 const FormStyled = styled.form`
   width: 100%;
@@ -27,13 +29,22 @@ const ButtonStyled = styled(Button)`
 `
 
 class Login extends React.Component {
-
   constructor(props) {
     super(props);
     this.state = {
       email: "",
       password: "",
+      isLoggedIn: false,
     };
+  }
+  componentDidMount() {
+    firebase.auth().onAuthStateChanged(async (user) => {
+      if (user) {
+        this.setState({isLoggedIn: true})
+      } else {
+        this.setState({isLoggedIn: false})
+      }
+    });
   }
 
   handleFieldChange = event => {
@@ -50,8 +61,15 @@ class Login extends React.Component {
   };
 
 
+  onClickLogin = () => {
+    if(this.state.isLoggedIn === true) {
+      this.props.goToFeedPage()
+    }
+  }
+
   render() {
     const { email, password } = this.state;
+    console.log('login', this.state.isLoggedIn)
 
     return (
       <div>
@@ -81,13 +99,17 @@ class Login extends React.Component {
               variant="contained"
               color="primary"
               type="submit"
+              onClick={this.onClickLogin}
               >
               <Typography color="textSecondary">Entrar</Typography>
             </ButtonStyled>
             <ButtonStyled
               variant="contained"
-              color="primary">
-              <Typography color="textSecondary">Cadastrar</Typography>
+              color="primary"
+              type="submit"
+              onClick={this.props.goToChangePassword}
+              >
+              <Typography color="textSecondary">Trocar Senha</Typography>
             </ButtonStyled>
           </BtnWrapper>
         </FormStyled>
@@ -98,16 +120,11 @@ class Login extends React.Component {
 
 function mapDispatchToProps(dispatch) {
   return {
-  
-
+  goToFeedPage: () => dispatch(push(routes.feed)),
+  goToChangePassword: () => dispatch(push(routes.changepw))
   };
 }
 
-
-
-export default connect(
-  null,
-  mapDispatchToProps
-)(Login);
+export default connect( null,mapDispatchToProps)(Login);
 
 

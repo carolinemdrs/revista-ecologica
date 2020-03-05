@@ -1,11 +1,14 @@
 import React from "react";
 import styled from "styled-components";
-import Button from '@material-ui/core/Button';
-import Typography from '@material-ui/core/Typography';
 import Menu from "../../components/Menu";
 import Header from "../../components/Header";
 import Cards from "../../components/cards";
 import BigCard from "../../components/bigCard";
+import Button from '@material-ui/core/Button';
+import * as firebase from "firebase/app";
+import { connect } from "react-redux";
+import { push } from "connected-react-router";
+import { routes } from '../Router';
 
 const MenuContainer = styled.div`
   margin-top: 7%;
@@ -38,7 +41,28 @@ class Feed extends React.Component {
     };
   }
 
+  componentDidMount() {
+    firebase.auth().onAuthStateChanged(async (user) => {
+      if (user) {
+        this.setState({isLoggedIn: true})
+      } else {
+        this.setState({isLoggedIn: false})
+      }
+    });
+  }
+
+  onClickLogOut = () => {
+    firebase.auth().signOut().then(function() {
+      // Sign-out successful.
+    }).catch(function(error) {
+      // An error happened.
+    });
+    this.props. goToLoginPage()
+    console.log("logout")
+  }
+  
   render() {
+    console.log('login', this.state.isLoggedIn)
     return (
       <div>
           <Header />
@@ -46,6 +70,7 @@ class Feed extends React.Component {
               <Menu />
               <BigCardStyled >
                 <BigCard/>
+                <Button onClick={this.onClickLogOut}>LOG OUT</Button>
               </BigCardStyled>
               <CardContainer>
                 <Cards />
@@ -61,6 +86,10 @@ class Feed extends React.Component {
   }
 }
 
+function mapDispatchToProps (dispatch) {
+  return{
+    goToLoginPage: () => dispatch(push(routes.login))
+  }
+}
 
-
-export default Feed
+export default connect (null, mapDispatchToProps)(Feed)

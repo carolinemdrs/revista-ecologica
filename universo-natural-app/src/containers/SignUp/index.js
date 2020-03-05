@@ -1,12 +1,14 @@
 import React from "react";
-import { connect } from "react-redux";
 import styled from "styled-components";
 import TextField from '@material-ui/core/TextField';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import * as firebase from "firebase/app";
 import Header from "../../components/Header";
-import Footer from "../../components/Footer";
+import { connect } from "react-redux";
+import { push } from "connected-react-router";
+import { routes } from '../Router';
+
 
 const FormStyled = styled.form`
   width: 100%;
@@ -25,17 +27,25 @@ const ButtonStyled = styled(Button)`
  width: 100px;
 `
 
-
 class SignUp extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       name:"",
       email: "",
-      password: ""
+      password: "",
+      isLoggedIn: false,
     };
   }
-
+  componentDidMount() {
+    firebase.auth().onAuthStateChanged(async (user) => {
+      if (user) {
+        this.setState({isLoggedIn: true})
+      } else {
+        this.setState({isLoggedIn: false})
+      }
+    });
+  }
 
   handleFieldChange = (e) => {
     this.setState({[e.target.name]: e.target.value})
@@ -47,6 +57,12 @@ class SignUp extends React.Component {
     firebase.auth().createUserWithEmailAndPassword(this.state.email, this.state.password).then((res) => {
     console.log(res)
     }).catch((e) => console.log('erro: ', e))
+  }
+
+  onClickSignUp = () => {
+    if(this.state.isLoggedIn === true) {
+      this.props.goToFeedPage()
+    }
   }
 
   render() {
@@ -89,6 +105,7 @@ class SignUp extends React.Component {
               variant="contained"
               color="primary"
               type="subimit"
+              onClick={this.onClickSignUp}
               >
               <Typography color="textSecondary">Cadastrar</Typography>
             </ButtonStyled>
@@ -102,7 +119,7 @@ class SignUp extends React.Component {
 
 function mapDispatchToProps(dispatch) {
   return {
-  
+    goToFeedPage: () => dispatch(push(routes.feed))
 
   };
 }

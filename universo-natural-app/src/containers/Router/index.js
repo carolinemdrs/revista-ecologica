@@ -9,7 +9,8 @@ import Contato from "../Contato";
 import TextDetails from "../TextDetails";
 import About  from "../About";
 import FeedByCategory from "../FeedCategorias";
-import ChangePassword from "../ChangePassword"
+import ChangePassword from "../ChangePassword";
+
 
 export const routes = {
   login:"/login",
@@ -33,9 +34,10 @@ function Router(props) {
             <Route exact path={routes.about} component={About}/> 
             <Route exact path={routes.text} component={TextDetails}/> 
             <Route exact path={routes.contato} component={Contato}/> 
-            <Route exact path={routes.home} component={Home}/> 
             <Route exact path={routes.login} component={Login}/> 
+            <Route exact path={routes.home} component={Home}/>
             <Route exact path={routes.signup} component={SignUp}/> 
+> 
             
         </Switch>
       </ConnectedRouter>
