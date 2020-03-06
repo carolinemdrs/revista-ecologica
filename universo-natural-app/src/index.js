@@ -4,6 +4,7 @@ import App from "./containers/App";
 import * as firebase from "firebase/app";
 import "firebase/firestore";
 import "firebase/auth";
+//import * as functions from 'firebase-functions';
 
 
 const firebaseConfig = {

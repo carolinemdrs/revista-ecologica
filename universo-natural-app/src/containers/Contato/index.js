@@ -4,7 +4,13 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Header from "../../components/Header"
 import TextField from '@material-ui/core/TextField';
-import Footer from "../../components/Footer";
+import * as firebase from "firebase/app";
+import { connect } from "react-redux";
+import { push } from "connected-react-router";
+import { routes } from '../Router';
+import * as admin from "firebase-admin"
+
+//const admin = require("firebase-admin");
 
 const FormStyled = styled.form`
   width: 100%;
@@ -30,27 +36,37 @@ class Contato extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+           email: "",
            name: "",
-            email: "",
-            text: "",
+           text: "",
     };
   }
+  
+  handleFieldChange = event => {
+    this.setState({
+      [event.target.name]: event.target.value
+    });
+  };
 
+  onSubmitContact = () => {
+    let data = {
+      email:this.state.email,
+      name: this.state.name,
+      text: this.state.text
+  }
+  let addData = admin.firestore().collection('contactForm').add(data)
+  console.log(data)
+  return addData.then(res => {
+    console.log('add: ', res);
+  }); 
+}
   render() {
       const {name, email, text} = this.state;
     return (
 
       <div>
         <Header/>
-        <FormStyled >
-            <TextFieldStyle
-                required
-                name="name"
-                type="name"
-                label="Nome"
-                value={name}
-                variant="outlined"
-                />
+        <FormStyled onSubmit={this.onSubmitContact}>
             <TextFieldStyle
                 required
                 name="email"
@@ -58,13 +74,26 @@ class Contato extends React.Component {
                 label="E-mail"
                 value={email}
                 variant="outlined"
+                onChange={this.handleFieldChange}
+              />
+            <TextFieldStyle
+                required
+                name="name"
+                type="name"
+                label="Nome"
+                value={name}
+                variant="outlined"
+                onChange={this.handleFieldChange}
              />
             <TextFieldStyle
+                name="text"
+                type="text"
                 label="Texto"
                 multiline
-                rows="15"
+                rows="5"
                 value={text}
                 variant="outlined"
+                onChange={this.handleFieldChange}
             />
             <BtnWrapper>
                 <Button
