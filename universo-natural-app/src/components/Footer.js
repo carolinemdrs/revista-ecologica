@@ -1,20 +1,16 @@
 import React from "react";
 import styled from "styled-components";
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
 import insta from "../img/insta.svg";
 import fb from "../img/fb.svg";
 import yt from "../img/yt.svg";
 
-const ToolbarStyled = styled(Toolbar)`
-  display: flex;
-  justify-content: space-between;
-`
-const InstaImg = styled.img`
+const IconImg = styled.img`
   width:5%;
-  margin-top:6%;
-  display: flex;
+`
+
+const IconContainer = styled.div`
+	display:flex;
+	margin-left:70vh;
 `
 class Footer extends React.Component {
 	constructor(props) {
@@ -24,19 +20,17 @@ class Footer extends React.Component {
 	}
 	render() {
 		return (
-			<AppBar>
-				<ToolbarStyled>
-					<InstaImg
+			<IconContainer>
+				<IconImg
 					src={insta}
-					/>
-					<InstaImg
+				/>
+				<IconImg
 					src={fb}
-					/>
-					<InstaImg
+				/>
+				<IconImg
 					src={yt}
-					/>
-				</ToolbarStyled>
-		  </AppBar>
+				/>	
+		  </IconContainer>
 		)
 	}
 }

@@ -31,6 +31,10 @@ const LogoImg = styled.img`
   margin-top:6%;
   display: flex;
 `
+const Background = styled.div `
+background-color: #aed581
+
+`
 class Header extends React.Component {
 	constructor(props) {
 		super(props)
@@ -58,19 +62,18 @@ class Header extends React.Component {
 	
 	render() {
 		return (
-			<AppBar>
+			<Background>
 				<ToolbarStyled>
 					<LogoImg
 					src={logo}
 					onClick={this.onClickLogo}
-
 					/>
 					<TypographyStyled >
 						<H2 onClick={this.props.goToContactPage}>Contato |</H2>
 						<H2 onClick={this.props.goToAboutPage}> Sobre </H2>
 					</TypographyStyled>
 				</ToolbarStyled>
-		  </AppBar>
+		  </Background>
 		)
 	}
 }

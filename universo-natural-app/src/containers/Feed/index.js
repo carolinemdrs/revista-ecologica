@@ -9,29 +9,27 @@ import * as firebase from "firebase/app";
 import { connect } from "react-redux";
 import { push } from "connected-react-router";
 import { routes } from '../Router';
+import CardsContainer from "../../components/CardContainer";
+import Footer from "../../components/Footer";
 
-const MenuContainer = styled.div`
-  margin-top: 7%;
-`
-/*
-const MainContainer = styled.div`
+const ContainerGeral = styled.div`
   display:grid;
-  heigh: 100vh;
+  grid-template-rows: 10vh 50vh 80fr 10fr;
+  grid-template-column:1fr;
   width:100%;
-` */
+  gap:5vh;
+  align-self: center;
+  padding-left: 20vh;
+  padding-rigth: 0vh;
+`
+const HeaderLogOut = styled.div`
+  display:grid;
+  grid-template-areas: "Header Button"
+`
 
-const CardContainer = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr
-  gap: 5px;
-  margin-left:10vh;
-  margin-top:10vh;
-` 
-
-const BigCardStyled = styled.div`
-  display: flex;
-  margin-left:40vh;
-  margin-top:5vh;
+const BigCardStyled = styled(BigCard)`
+  display:grid;
+  margin-left:50vh;
 `
 
 class Feed extends React.Component {
@@ -65,22 +63,16 @@ class Feed extends React.Component {
     console.log('login', this.state.isLoggedIn)
     return (
       <div>
-          <Header />
-          <MenuContainer>
-              <Menu />
-              <BigCardStyled >
-                <BigCard/>
-                <Button onClick={this.onClickLogOut}>LOG OUT</Button>
-              </BigCardStyled>
-              <CardContainer>
-                <Cards />
-                <Cards />
-                <Cards />
-                <Cards />
-                <Cards />
-                <Cards />
-              </CardContainer>
-          </MenuContainer>
+        <HeaderLogOut>
+            <Header />
+            <Button onClick={this.onClickLogOut}>SAIR</Button>  
+        </HeaderLogOut>
+        <ContainerGeral>
+            <Menu />
+            <BigCardStyled/>
+            <CardsContainer />               
+            <Footer/>
+        </ContainerGeral>
       </div>
     )
   }

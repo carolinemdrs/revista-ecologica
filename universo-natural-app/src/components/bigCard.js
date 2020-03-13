@@ -11,6 +11,7 @@ import Typography from '@material-ui/core/Typography';
 import { connect } from "react-redux";
 import { push } from "connected-react-router";
 import { routes } from '../containers/Router';
+import styled from "styled-components";
 
 const styles = {
   card: {
@@ -22,6 +23,12 @@ const styles = {
   },
 };
 
+
+const CardStyled = styled.div `
+display:grid;
+margin-left:20vh;
+`
+
 class  BigCard extends React.Component {
   constructor(props) {
     super(props);
@@ -29,9 +36,12 @@ class  BigCard extends React.Component {
     };
   }
 
+
+
   render() {
     const { classes } =  this.props;
     return (
+      <CardStyled>
       <Card className={classes.card} >
         <CardActionArea>
           <CardMedia
@@ -58,6 +68,7 @@ class  BigCard extends React.Component {
           </Button>
         </CardActions>
       </Card>
+      </CardStyled>
     );
   }
 }

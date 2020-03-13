@@ -5,12 +5,11 @@ import Typography from '@material-ui/core/Typography';
 import Header from "../../components/Header"
 import TextField from '@material-ui/core/TextField';
 import * as firebase from "firebase/app";
+import "firebase/firestore";
 import { connect } from "react-redux";
 import { push } from "connected-react-router";
 import { routes } from '../Router';
-import * as admin from "firebase-admin"
 
-//const admin = require("firebase-admin");
 
 const FormStyled = styled.form`
   width: 100%;
@@ -48,17 +47,18 @@ class Contato extends React.Component {
     });
   };
 
-  onSubmitContact = () => {
+  onSubmitContact = (e) => {
+    e.preventDefault()
     let data = {
       email:this.state.email,
       name: this.state.name,
       text: this.state.text
   }
-  let addData = admin.firestore().collection('contactForm').add(data)
-  console.log(data)
+  const db = firebase.firestore();
+  let addData = db.collection("contactForm").add(data);
   return addData.then(res => {
-    console.log('add: ', res);
-  }); 
+    console.log("add: ", res);
+  }).catch((e) => console.log('erro: ', e))
 }
   render() {
       const {name, email, text} = this.state;

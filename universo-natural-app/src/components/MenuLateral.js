@@ -9,6 +9,15 @@ import ListItemText from '@material-ui/core/ListItemText';
 import Brightness2Icon from '@material-ui/icons/Brightness2';
 import AddAPhotoIcon from '@material-ui/icons/AddAPhoto';
 import SatelliteIcon from '@material-ui/icons/Satellite';
+import styled from "styled-components";
+
+const MenuContainer = styled.div`
+  display:flex;
+  width: 40vh;
+  background-color: #F5F5F5;
+  margin:0;
+  height: 40vh;
+`
 
 const styles = theme => ({
   menuItem: {
@@ -27,7 +36,7 @@ function SubCategorias(props) {
   const { classes } = props;
 
   return (
-    <Paper>
+    <MenuContainer>
       <MenuList>
         <MenuItem className={classes.menuItem}>
           <ListItemIcon className={classes.icon}>
@@ -48,7 +57,7 @@ function SubCategorias(props) {
           <ListItemText classes={{ primary: classes.primary }} inset primary="Satélites" />
         </MenuItem>
       </MenuList>
-    </Paper>
+    </MenuContainer>
   );
 }
 
