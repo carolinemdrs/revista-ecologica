@@ -14,9 +14,10 @@ import Footer from "../../components/Footer";
 import {device} from "../../../src/device";
 import DropDownMenu from "../../components/DropDownMenu";
 
+
 const ContainerGeral = styled.div`
   display:grid;
-  grid-template-rows: 10vh 50vh 80fr 10fr;
+  grid-template-rows: 10vh 50vh 80fr 1fr;
   grid-template-column:1fr;
   width:100%;
   gap:5vh;
@@ -45,9 +46,14 @@ const BigCardStyled = styled(BigCard)`
   display:flex;
   padding-left:50vh;
 `
-const DropDownMenuStyle = styled(DropDownMenu)`
- 
+const DropDownMenuStyled = styled.div`
+  display:none
+
+  @media ${device.mobileM} {
+    display:flex;
+  }
 `
+
 
 class Feed extends React.Component {
   constructor(props) {
@@ -85,8 +91,10 @@ class Feed extends React.Component {
             <Button onClick={this.onClickLogOut}>SAIR</Button>  
         </HeaderLogOut>
         <ContainerGeral>
+            <DropDownMenuStyled>
+              <DropDownMenu />
+            </DropDownMenuStyled>
             <Menu />
-            <DropDownMenuStyle/>
             <BigCardStyled/>
             <CardsContainer />       
         </ContainerGeral>

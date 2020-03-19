@@ -7,6 +7,9 @@ import SubCategorias from "../../components/MenuLateral";
 import Footer from "../../components/Footer";
 import CardsContainer from "../../components/CardContainer";
 import {device} from "../../../src/device";
+import DropDownMenu from "../../components/DropDownMenu";
+import DropDownMenuLateral from './DropDownMenuLateral';
+
 
 const ContainerGeral = styled.div`
   display: grid;
@@ -15,7 +18,6 @@ const ContainerGeral = styled.div`
   gap: 5px;
  
   @media ${device.mobileM} {
-    background-color:pink;
     display: grid;
     grid-template-row: 1fr 1fr 1fr 1fr ;
     grid-template-columns: 1fr; 
@@ -36,7 +38,6 @@ const MainContainer = styled.div`
   gap: 8vh;
   
   @media (max-width: 667px) {
-    background-color:blue;
     display:grid;
     grid-template-columns: 1fr;
     grid-template-row: 1fr ;
@@ -47,8 +48,15 @@ const MainContainer = styled.div`
     display:flex;
     flex-direction:column; 
   }
-  
 ` 
+const DropDownMenuStyled = styled.div`
+  display:none
+
+  @media ${device.mobileM} {
+    display:flex;
+  }
+`
+
 
 class FeedByCategory extends React.Component {
   constructor(props) {
@@ -62,6 +70,10 @@ class FeedByCategory extends React.Component {
       <div>
       <Header />
       <ContainerGeral>
+          <DropDownMenuStyled>
+            <DropDownMenu />
+            <DropDownMenuLateral/>
+          </DropDownMenuStyled>
           <Menu />
           <MainContainer>
             <SubCategorias/>

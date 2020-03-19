@@ -10,12 +10,21 @@ import Brightness2Icon from '@material-ui/icons/Brightness2';
 import AddAPhotoIcon from '@material-ui/icons/AddAPhoto';
 import SatelliteIcon from '@material-ui/icons/Satellite';
 import styled from "styled-components";
+import {device} from "./../../src/device";
 
 const MenuContainer = styled.div`
   display:flex;
   width: 30vh;
   background-color: #F5F5F5;
   margin:0;
+  
+  @media (max-width: 1024px) and (min-width:768px) {
+    display:none;
+  }
+  
+  @media ${device.mobileM} {
+    display:none;
+  }
 
 `
 

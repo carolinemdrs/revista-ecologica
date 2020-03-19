@@ -12,6 +12,14 @@ const Container = styled.div`
   flex-direction: row;
   justify-content: center;
 
+  @media (max-width: 1024px) and (min-width:768px) {
+    display:none;
+  }
+  
+  @media ${device.mobileM} {
+    display:none;
+  }
+
 `
 
 class Menu extends React.Component {
