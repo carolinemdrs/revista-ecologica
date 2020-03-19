@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Cards from "../components/cards";
-import {device} from "./../../src/device"
+import {device} from "./../../src/device";
 
 /*
   display: flex;
@@ -25,10 +25,9 @@ import {device} from "./../../src/device"
 */
 
 const CardContainer = styled.div`
-  display:grid;
-  grid-template-columns: repeat(auto-fill, minmax(50vh, 50vh));
-  gap:5vh;
-  width:100%;
+display:grid;
+grid-template-columns: 1fr 1fr 1fr;
+grid-template-row: 1fr 1fr 1fr ;
 
   @media ${device.mobileM} {
     background-color:purple;
@@ -38,10 +37,10 @@ const CardContainer = styled.div`
   }
 
   @media (max-width: 1024px) and (min-width:768px)  {
-    display:flex;
-    justify-content:center;
-    flex-direction:column;  
-    padding-left:5vh;
+    display:grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-row: 1fr 1fr 1fr ;
+    justify-content: center;    
 }
 ` 
 const CardsItem = styled(Cards) `

@@ -22,7 +22,6 @@ const FormStyled = styled.form`
     display:grid
     height: 80vh
   }
-
 `
 
 const BtnWrapper = styled.div`
@@ -34,7 +33,6 @@ const BtnWrapper = styled.div`
     display: flex;
     justify-content: center;
   }
-
 `
 
 const ButtonStyled = styled(Button)`
@@ -42,11 +40,15 @@ const ButtonStyled = styled(Button)`
  margin:5px
 `
 const TextFieldStyled = styled(TextField)`
-@media (max-width: 1024px) and (min-width:768px)  {
-  width: 30vh;
+  @media (max-width: 1024px) and (min-width:768px)  {
+    width: 30vh;
 }
-  
-
+`
+const TypographyStyled = styled(Typography)`
+  @media (max-width: 1024px) and (min-width:768px)  {
+    font-weight: bold;
+    font-size: 16px; 
+}
 `
 
 class Login extends React.Component {
@@ -104,7 +106,7 @@ class Login extends React.Component {
             label="E-mail"
             value={email}
             variant="outlined"
-            height="50vh"
+            
           />
 
           <TextFieldStyled
@@ -123,7 +125,7 @@ class Login extends React.Component {
               type="submit"
               onClick={this.onClickLogin}
               >
-              <Typography color="textSecondary">Entrar</Typography>
+              <TypographyStyled  color="textSecondary">Entrar</TypographyStyled>
             </ButtonStyled>
             <ButtonStyled
               variant="contained"
@@ -131,7 +133,7 @@ class Login extends React.Component {
               type="submit"
               onClick={this.props.goToChangePassword}
               >
-              <Typography color="textSecondary">Trocar Senha</Typography>
+              <TypographyStyled  color="textSecondary">Trocar Senha</TypographyStyled>
             </ButtonStyled>
           </BtnWrapper>
         </FormStyled>

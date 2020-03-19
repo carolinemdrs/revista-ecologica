@@ -11,6 +11,8 @@ import { push } from "connected-react-router";
 import { routes } from '../Router';
 import CardsContainer from "../../components/CardContainer";
 import Footer from "../../components/Footer";
+import {device} from "../../../src/device";
+import DropDownMenu from "../../components/DropDownMenu";
 
 const ContainerGeral = styled.div`
   display:grid;
@@ -19,8 +21,20 @@ const ContainerGeral = styled.div`
   width:100%;
   gap:5vh;
   align-self: center;
-  padding-left: 20vh;
+  padding-left: 5vh;
   padding-rigth: 0vh;
+  
+  @media (max-width: 1024px) and (min-width:768px) {
+    display:flex;
+    flex-direction:column; 
+    padding:2vh
+    height:80%
+  }
+
+  @media ${device.mobileM} {
+    display:flex;
+    flex-direction:column; 
+  }
 `
 const HeaderLogOut = styled.div`
   display:grid;
@@ -28,8 +42,11 @@ const HeaderLogOut = styled.div`
 `
 
 const BigCardStyled = styled(BigCard)`
-  display:grid;
-  margin-left:50vh;
+  display:flex;
+  padding-left:50vh;
+`
+const DropDownMenuStyle = styled(DropDownMenu)`
+ 
 `
 
 class Feed extends React.Component {
@@ -69,10 +86,11 @@ class Feed extends React.Component {
         </HeaderLogOut>
         <ContainerGeral>
             <Menu />
+            <DropDownMenuStyle/>
             <BigCardStyled/>
-            <CardsContainer />               
-            <Footer/>
+            <CardsContainer />       
         </ContainerGeral>
+        <Footer/>
       </div>
     )
   }

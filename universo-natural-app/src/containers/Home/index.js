@@ -14,6 +14,10 @@ const MainContent = styled.div `
   place-content: center;
   justify-items: center;
   display: grid;
+  @media (max-width: 1024px) and (min-width:768px)  { 
+    display:grid
+    height: 80vh
+  }
 `
 const ChooseButton = styled.div`
 	display: flex;

@@ -15,15 +15,24 @@ const FormStyled = styled.form`
   place-content: center;
   justify-items: center;
   display: grid;
+  @media (max-width: 1024px) and (min-width:768px)  { 
+    display:grid
+    height: 80vh
+  }
 `
 const BtnWrapper = styled.div`
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
 `
-
 const ButtonStyled = styled(Button)`
- width: 100px;
+ width: 140px;
+`
+const TypographyStyled = styled(Typography)`
+  @media (max-width: 1024px) and (min-width:768px)  {
+    font-weight: bold;
+    font-size: 16px; 
+}
 `
 
 class ChangePassword extends React.Component {
@@ -75,7 +84,7 @@ class ChangePassword extends React.Component {
               type="submit"
               onClick={this.onClickRedefine}
               >
-              <Typography color="textSecondary">Redefinir Senha</Typography>
+              <TypographyStyled color="textSecondary">Redefinir Senha</TypographyStyled>
             </ButtonStyled>
           </BtnWrapper>
         </FormStyled>

@@ -12,6 +12,7 @@ import { connect } from "react-redux";
 import { push } from "connected-react-router";
 import { routes } from '../containers/Router';
 import styled from "styled-components";
+import {device} from "./../../src/device";
 
 const styles = {
   card: {
@@ -25,18 +26,24 @@ const styles = {
 
 
 const CardStyled = styled.div `
-display:grid;
-margin-left:20vh;
-`
+display:flex;
+padding-left:30vh;
 
+@media (max-width: 1024px) and (min-width:768px) {
+  display:flex;
+  padding-left:0vh;
+}
+
+@media ${device.mobileM} {
+  display:none;
+}
+`
 class  BigCard extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
     };
   }
-
-
 
   render() {
     const { classes } =  this.props;
