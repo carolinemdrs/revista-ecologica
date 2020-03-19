@@ -13,10 +13,10 @@ import styled from "styled-components";
 
 const MenuContainer = styled.div`
   display:flex;
-  width: 40vh;
+  width: 30vh;
   background-color: #F5F5F5;
   margin:0;
-  height: 40vh;
+
 `
 
 const styles = theme => ({

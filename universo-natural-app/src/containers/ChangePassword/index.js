@@ -6,6 +6,7 @@ import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Header from "../../components/Header";
 import * as firebase from "firebase/app";
+import Footer from "../../components/Footer";
 
 const FormStyled = styled.form`
   width: 100%;
@@ -78,6 +79,7 @@ class ChangePassword extends React.Component {
             </ButtonStyled>
           </BtnWrapper>
         </FormStyled>
+        <Footer/>
       </div>
     )
   }

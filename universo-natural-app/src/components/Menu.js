@@ -5,11 +5,13 @@ import { connect } from "react-redux";
 import { push } from "connected-react-router";
 import { routes } from '../containers/Router';
 import * as firebase from "firebase/app";
+import {device} from "./../../src/device";
 
 const Container = styled.div`
   display:flex;
   flex-direction: row;
   justify-content: center;
+
 `
 
 class Menu extends React.Component {

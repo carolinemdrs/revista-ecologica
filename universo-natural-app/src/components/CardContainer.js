@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Cards from "../components/cards";
+import {device} from "./../../src/device"
 
 /*
   display: flex;
@@ -29,10 +30,18 @@ const CardContainer = styled.div`
   gap:5vh;
   width:100%;
 
-  @media screen and (max-width: 900px) {
-    div {
+  @media ${device.mobileM} {
+    background-color:purple;
+    display:grid;
+    grid-template-columns: 1fr;
+    grid-template-row: 1fr ;
+  }
 
-    }
+  @media (max-width: 1024px) and (min-width:768px)  {
+    display:flex;
+    justify-content:center;
+    flex-direction:column;  
+    padding-left:5vh;
 }
 ` 
 const CardsItem = styled(Cards) `

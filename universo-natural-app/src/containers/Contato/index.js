@@ -9,7 +9,7 @@ import "firebase/firestore";
 import { connect } from "react-redux";
 import { push } from "connected-react-router";
 import { routes } from '../Router';
-
+import Footer from "../../components/Footer";
 
 const FormStyled = styled.form`
   width: 100%;
@@ -105,6 +105,7 @@ class Contato extends React.Component {
                 </Button>
             </BtnWrapper>
         </FormStyled>
+        <Footer/>
       </div>
     )
   }

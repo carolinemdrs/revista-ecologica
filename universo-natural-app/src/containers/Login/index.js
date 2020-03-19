@@ -8,6 +8,7 @@ import Header from "../../components/Header";
 import { connect } from "react-redux";
 import { push } from "connected-react-router";
 import { routes } from '../Router';
+import Footer from "../../components/Footer";
 
 const FormStyled = styled.form`
   width: 100%;
@@ -16,16 +17,30 @@ const FormStyled = styled.form`
   place-content: center;
   justify-items: center;
   display: grid;
+
+  @media (max-width: 1024px) and (min-width:768px)  {
+    
+  }
+
 `
 
 const BtnWrapper = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
+
+  @media (max-width: 1024px) and (min-width:768px)  {
+    display: flex;
+    justify-content: center;
+  }
+
 `
 
 const ButtonStyled = styled(Button)`
  width: 100px;
+`
+const TextFieldStyled = styled(TextField)`
+  width: 30vh;
 `
 
 class Login extends React.Component {
@@ -75,7 +90,7 @@ class Login extends React.Component {
       <div>
         <Header />
         <FormStyled onSubmit={this.onSubimitLogin}>
-          <TextField
+          <TextFieldStyled
             required
             onChange={this.handleFieldChange}
             name="email"
@@ -85,7 +100,7 @@ class Login extends React.Component {
             variant="outlined"
           />
 
-          <TextField
+          <TextFieldStyled
             required
             onChange={this.handleFieldChange}
             name="password"
@@ -113,6 +128,7 @@ class Login extends React.Component {
             </ButtonStyled>
           </BtnWrapper>
         </FormStyled>
+        <Footer/>
       </div>
     )
   }

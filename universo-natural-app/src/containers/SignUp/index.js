@@ -8,6 +8,8 @@ import Header from "../../components/Header";
 import { connect } from "react-redux";
 import { push } from "connected-react-router";
 import { routes } from '../Router';
+import Footer from "../../components/Footer";
+
 
 
 const FormStyled = styled.form`
@@ -111,7 +113,8 @@ class SignUp extends React.Component {
             </ButtonStyled>
           </BtnWrapper>
           
-        </FormStyled>     
+        </FormStyled>   
+        <Footer/>  
       </div>
     )
   }

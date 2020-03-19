@@ -6,34 +6,40 @@ import Cards from "../../components/cards";
 import SubCategorias from "../../components/MenuLateral";
 import Footer from "../../components/Footer";
 import CardsContainer from "../../components/CardContainer";
+import {device} from "../../../src/device";
 
 const ContainerGeral = styled.div`
   display: grid;
-  grid-template-row: 1fr 1fr 1fr 1fr;
-  grid-template-columns: 1fr 
+  grid-template-row: 1fr 1fr 1fr ;
+  grid-template-columns: 1fr; 
   gap: 5px;
-  background-color:pink;
-
-  @media screen and (min-width: 375px) {
-    div {
-      display:grid;
-      grid-template-row: 1fr 1fr 1fr 1fr ;
-      grid-template-columns: 1fr 
-      gap: 5px;
-    }
+ 
+  @media ${device.mobileM} {
+    background-color:pink;
+    display: grid;
+    grid-template-row: 1fr 1fr 1fr 1fr ;
+    grid-template-columns: 1fr; 
+    gap: 5px;
+  }
 ` 
 
 const MainContainer = styled.div`
   display: grid;
-  grid-template-columns: 30vh 1fr 
-  grid-template-row: 1fr 
-  gap: 5px
+  grid-template-columns: 30vh 1fr;
+  grid-template-row: 1fr; 
+  gap: 8vh;
+  
+  @media (max-width: 667px) {
+    background-color:blue;
+    display:grid;
+    grid-template-columns: 1fr;
+    grid-template-row: 1fr ;
+    margin:2vh
+  }
 
-  @media screen and (min-width: 375px) {
-    div {
-      
-      background-color:blue;
-    }
+  @media (max-width: 1024px) {
+    display:flex;
+    flex-direction:column; 
   }
   
 ` 
@@ -47,8 +53,9 @@ class FeedByCategory extends React.Component {
 
   render() {
     return (
+      <div>
+      <Header />
       <ContainerGeral>
-          <Header />
           <Menu />
           <MainContainer>
             <SubCategorias/>
@@ -56,6 +63,7 @@ class FeedByCategory extends React.Component {
           </MainContainer> 
           <Footer />
       </ContainerGeral>
+      </div>
     )
   }
 }

@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Header from "../../components/Header";
 import Typography from '@material-ui/core/Typography';
+import Footer from "../../components/Footer";
 
 const MainContainer = styled.div`
     width: 60%;
@@ -12,6 +13,11 @@ const MainContainer = styled.div`
     display: grid;
     background-color: #E7E2FC;
     padding:2%;
+    margin-bottom: 17%;
+    
+    @media (max-width: 1024px) and (min-width:768px)  {
+      margin-bottom: 80%;
+      }
 `
 
 class About extends React.Component {
@@ -29,6 +35,7 @@ class About extends React.Component {
             <MainContainer>
                 <Typography>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</Typography>
             </MainContainer>
+            <Footer />
       </div>
     )
   }

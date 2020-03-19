@@ -5,20 +5,39 @@ import Header from "../../components/Header"
 import { connect } from "react-redux";
 import { push } from "connected-react-router";
 import { routes } from '../Router'
+import Footer from "../../components/Footer";
 
 const MainContent = styled.div `
-width: 100%;
-height: 100vh;
-gap: 10px;
-place-content: center;
-justify-items: center;
-display: grid;
+  width: 100%;
+  height: 100vh;
+  gap: 10px;
+  place-content: center;
+  justify-items: center;
+  display: grid;
 `
 const ChooseButton = styled.div`
 	display: flex;
 	width: 400px;
-	justify-content: space-between;
+  justify-content: space-between;
+
+  @media (max-width: 1024px) and (min-width:768px)  {
+    display: flex;
+    justify-content: space-between;
+    height:100px
+  }
 `
+const Text = styled.p`
+  @media (max-width: 1024px) and (min-width:768px)  {
+   font-size: 26px;
+  }
+`
+const FooterStyled = styled(Footer)`
+  @media (max-width: 1024px) and (min-width:768px)  {
+   height:80px
+  }
+`
+
+
 class Home extends React.Component {
   constructor(props) {
     super(props);
@@ -35,21 +54,24 @@ class Home extends React.Component {
             <MainContent>
           <ChooseButton>
             <Button 
-            variant="contained" 
-            size="large" 
-            onClick={this.props.goToSignUpPage}
+              variant="contained" 
+              size="large" 
+              onClick={this.props.goToSignUpPage}
             >
-              Cadastrar
-            </Button>
-            <Button 
-            variant="contained" 
-            size="large"
-            onClick={this.props.goToLoginPage}
+            <Text>Cadastrar</Text>
+            </Button >
+
+            <Button  
+              variant="contained" 
+              size="large"
+              onClick={this.props.goToLoginPage}
             >
-              Acessar
-            </Button>
+              <Text>Acessar</Text>
+            </Button >
           </ChooseButton>
+          
         </MainContent>
+        <FooterStyled/>
       </div>
     )
   }
