@@ -18,8 +18,9 @@ const FormStyled = styled.form`
   justify-items: center;
   display: grid;
 
-  @media (max-width: 1024px) and (min-width:768px)  {
-    
+  @media (max-width: 1024px) and (min-width:768px)  { 
+    display:grid
+    height: 80vh
   }
 
 `
@@ -38,9 +39,14 @@ const BtnWrapper = styled.div`
 
 const ButtonStyled = styled(Button)`
  width: 100px;
+ margin:5px
 `
 const TextFieldStyled = styled(TextField)`
+@media (max-width: 1024px) and (min-width:768px)  {
   width: 30vh;
+}
+  
+
 `
 
 class Login extends React.Component {
@@ -98,6 +104,7 @@ class Login extends React.Component {
             label="E-mail"
             value={email}
             variant="outlined"
+            height="50vh"
           />
 
           <TextFieldStyled

@@ -10,10 +10,9 @@ const IconImg = styled.img`
   margin:1vh;
 
   @media (max-width: 1024px) and (min-width:768px)  {
-	width:15%;
+	width:10%;
 	margin:0
-}
-  
+} 
 `
 const IconContainer = styled.div`
 	display:flex;
