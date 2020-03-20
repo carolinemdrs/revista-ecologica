@@ -11,8 +11,15 @@ const IconImg = styled.img`
 
   @media (max-width: 1024px) and (min-width:768px)  {
 	width:10%;
-	margin:0
+	margin:0;
 } 
+
+  @media ${device.mobileM} {
+	 display:flex;
+	 align-items:center;
+	 width:10%;
+	 margin-left:1vh;
+	}
 `
 const IconContainer = styled.div`
 	display:flex;
@@ -22,7 +29,7 @@ const IconContainer = styled.div`
 
 	@media ${device.mobileM} {
 		display:flex;
-		margin-left:15vh;
+		margin-left:20vh;
 	  }
 	
 	@media (max-width: 1024px) and (min-width:768px)  {

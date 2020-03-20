@@ -11,6 +11,9 @@ import AddAPhotoIcon from '@material-ui/icons/AddAPhoto';
 import SatelliteIcon from '@material-ui/icons/Satellite';
 import styled from "styled-components";
 import {device} from "./../../src/device";
+import { connect } from "react-redux";
+import { push } from "connected-react-router";
+import { routes } from '../containers/Router';
 
 const MenuContainer = styled.div`
   display:flex;
@@ -41,8 +44,10 @@ const styles = theme => ({
   icon: {},
 });
 
+
+
 function SubCategorias(props) {
-  const { classes } = props;
+  const { classes} = props;
 
   return (
     <MenuContainer>
@@ -51,7 +56,8 @@ function SubCategorias(props) {
           <ListItemIcon className={classes.icon}>
             <AddAPhotoIcon />
           </ListItemIcon>
-          <ListItemText classes={{ primary: classes.primary }} inset primary="Fotos " />
+          <ListItemText onClick={props.goToPhotosPage}
+          classes={{ primary: classes.primary }} inset primary="Fotos " />
         </MenuItem>
         <MenuItem className={classes.menuItem}>
           <ListItemIcon className={classes.icon}>
@@ -68,11 +74,20 @@ function SubCategorias(props) {
       </MenuList>
     </MenuContainer>
   );
-}
+  }
+
 
 SubCategorias.propTypes = {
   classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(SubCategorias);
+function mapDispatchToProps(dispatch) {
+  return {
+  goToPhotosPage: () => dispatch(push(routes.astropic)),
+  };
+}
+
+export default withStyles(styles) (connect( null,mapDispatchToProps)(SubCategorias))
+
+//export default withStyles(styles)(SubCategorias);
 

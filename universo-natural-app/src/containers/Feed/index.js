@@ -14,7 +14,6 @@ import Footer from "../../components/Footer";
 import {device} from "../../../src/device";
 import DropDownMenu from "../../components/DropDownMenu";
 
-
 const ContainerGeral = styled.div`
   display:grid;
   grid-template-rows: 10vh 50vh 80fr 1fr;
@@ -41,7 +40,6 @@ const HeaderLogOut = styled.div`
   display:grid;
   grid-template-areas: "Header Button"
 `
-
 const BigCardStyled = styled(BigCard)`
   display:flex;
   padding-left:50vh;

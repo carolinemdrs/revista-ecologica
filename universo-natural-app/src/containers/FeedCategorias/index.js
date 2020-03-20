@@ -10,7 +10,6 @@ import {device} from "../../../src/device";
 import DropDownMenu from "../../components/DropDownMenu";
 import DropDownMenuLateral from './DropDownMenuLateral';
 
-
 const ContainerGeral = styled.div`
   display: grid;
   grid-template-row: 1fr 1fr 1fr ;
@@ -30,7 +29,6 @@ const ContainerGeral = styled.div`
     padding-left:3vh
   }
 ` 
-
 const MainContainer = styled.div`
   display: grid;
   grid-template-columns: 30vh 1fr;
@@ -60,7 +58,6 @@ const DropDownMenuStyled = styled.div`
     display:flex;
   }
 `
-
 
 class FeedByCategory extends React.Component {
   constructor(props) {

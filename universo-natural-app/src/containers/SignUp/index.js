@@ -31,8 +31,8 @@ const BtnWrapper = styled.div`
   justify-content: center;
 `
 const ButtonStyled = styled(Button)`
- width: 120px;
- height:50px
+  width: 120px;
+  height:50px
 `
 const TypographyStyled = styled(Typography)`
   @media (max-width: 1024px) and (min-width:768px)  {
@@ -95,7 +95,7 @@ class SignUp extends React.Component {
               value={name}
               variant="outlined"
             />
-            <TextField
+          <TextField
               required
               onChange={this.handleFieldChange}
               name="email"
@@ -104,7 +104,7 @@ class SignUp extends React.Component {
               value={email}
               variant="outlined"
             />
-            <TextField
+          <TextField
               required
               onChange={this.handleFieldChange}
               name="password"
@@ -124,7 +124,6 @@ class SignUp extends React.Component {
               <TypographyStyled color="textSecondary">Cadastrar</TypographyStyled>
             </ButtonStyled>
           </BtnWrapper>
-          
         </FormStyled>   
         <Footer/>  
       </div>
@@ -138,7 +137,6 @@ function mapDispatchToProps(dispatch) {
 
   };
 }
-
 
 
 export default connect(

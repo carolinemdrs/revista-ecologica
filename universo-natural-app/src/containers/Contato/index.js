@@ -32,8 +32,8 @@ const BtnWrapper = styled.div`
 `
 
 const TextFieldStyle = styled(TextField)`
-width: 150%;
-display: flex;
+  width: 150%;
+  display: flex;
 `
 
 class Contato extends React.Component {

@@ -21,7 +21,7 @@ export const routes = {
   contato: "/contato",
   text: "/text",
   about: "/about",
-  feedcat: "/feedcat",
+  feedcat: "/feed-cat",
   changepw: "/changepw",
   astropic: "/photos"
 };

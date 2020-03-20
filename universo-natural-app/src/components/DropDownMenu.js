@@ -2,13 +2,11 @@ import React from 'react';
 import Button from '@material-ui/core/Button';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
-import styled from "styled-components";
 import { connect } from "react-redux";
 import { push } from "connected-react-router";
 import { routes } from '../containers/Router';
 
-
-function DropDownMenu() {
+function DropDownMenu(props) {
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClick = event => {
@@ -17,8 +15,6 @@ function DropDownMenu() {
 
   const handleClose = () => {
     setAnchorEl(null);
-    
-
   };
 
   return (
@@ -38,7 +34,7 @@ function DropDownMenu() {
           <MenuItem onClick={handleClose}>Vegetação</MenuItem>
           <MenuItem onClick={handleClose}>Sustentabilidade</MenuItem>
           <MenuItem onClick={handleClose}>Paisagismo</MenuItem>
-          <MenuItem onClick={handleClose}>Astronomia</MenuItem>
+          <MenuItem onClick={props.goToFeedSpecificFeed}>Astronomia</MenuItem>
         </Menu>
     </div>
   );
