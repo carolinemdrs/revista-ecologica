@@ -10,6 +10,7 @@ import TextDetails from "../TextDetails";
 import About  from "../About";
 import FeedByCategory from "../FeedCategorias";
 import ChangePassword from "../ChangePassword";
+import AstronomyPic from "../Pictures"
 
 
 export const routes = {
@@ -21,14 +22,16 @@ export const routes = {
   text: "/text",
   about: "/about",
   feedcat: "/feedcat",
-  changepw: "/changepw"
+  changepw: "/changepw",
+  astropic: "/photos"
 };
 
 function Router(props) {
     return (
       <ConnectedRouter history={props.history}>
-        <Switch>  
-        <   Route exact path={routes.changepw} component={ChangePassword}/> 
+        <Switch> 
+            <Route exact path={routes.astropic} component={AstronomyPic}/>  
+            <Route exact path={routes.changepw} component={ChangePassword}/> 
             <Route exact path={routes.feedcat} component={FeedByCategory}/> 
             <Route exact path={routes.feed} component={Feed}/> 
             <Route exact path={routes.about} component={About}/> 

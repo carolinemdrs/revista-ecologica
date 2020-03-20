@@ -6,6 +6,7 @@ import { connect } from "react-redux";
 import { push } from "connected-react-router";
 import { routes } from '../Router'
 import Footer from "../../components/Footer";
+import {device} from "../../../src/device";
 
 const MainContent = styled.div `
   width: 100%;
@@ -14,9 +15,16 @@ const MainContent = styled.div `
   place-content: center;
   justify-items: center;
   display: grid;
+
   @media (max-width: 1024px) and (min-width:768px)  { 
     display:grid
     height: 80vh
+  }
+
+  @media ${device.mobileM} {
+    display:flex;
+    flex-direction:column;
+    height: 70vh
   }
 `
 const ChooseButton = styled.div`
@@ -29,6 +37,11 @@ const ChooseButton = styled.div`
     justify-content: space-between;
     height:100px
   }
+
+  @media ${device.mobileM} {
+    display:flex;
+    justify-content: center;
+  }
 `
 const Text = styled.p`
   @media (max-width: 1024px) and (min-width:768px)  {
@@ -37,10 +50,9 @@ const Text = styled.p`
 `
 const FooterStyled = styled(Footer)`
   @media (max-width: 1024px) and (min-width:768px)  {
-   height:80px
+   height:20vh
   }
 `
-
 
 class Home extends React.Component {
   constructor(props) {
@@ -55,25 +67,24 @@ class Home extends React.Component {
 
       <div>
         <Header/>
-            <MainContent>
-          <ChooseButton>
-            <Button 
-              variant="contained" 
-              size="large" 
-              onClick={this.props.goToSignUpPage}
-            >
-            <Text>Cadastrar</Text>
-            </Button >
+          <MainContent>
+            <ChooseButton>
+              <Button 
+                variant="contained" 
+                size="large" 
+                onClick={this.props.goToSignUpPage}
+              >
+              <Text>Cadastrar</Text>
+              </Button >
 
-            <Button  
-              variant="contained" 
-              size="large"
-              onClick={this.props.goToLoginPage}
-            >
-              <Text>Acessar</Text>
-            </Button >
-          </ChooseButton>
-          
+              <Button  
+                variant="contained" 
+                size="large"
+                onClick={this.props.goToLoginPage}
+              >
+                <Text>Acessar</Text>
+              </Button >
+            </ChooseButton>
         </MainContent>
         <FooterStyled/>
       </div>

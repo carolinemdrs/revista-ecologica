@@ -55,6 +55,10 @@ const DropDownMenuStyled = styled.div`
   @media ${device.mobileM} {
     display:flex;
   }
+
+  @media (max-width: 1024px) and (min-width:768px) {
+    display:flex;
+  }
 `
 
 
