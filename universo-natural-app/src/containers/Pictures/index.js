@@ -5,6 +5,17 @@ import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import axios from 'axios';
 import AstroCard from './card'
+import nasaLogo from '../../img/nasaLogo.png'
+
+
+const LogoImg = styled.img`
+  width:8%;
+ `
+const DailyImg = styled.div`
+  display:flex;
+  justify-content: space-between;
+  padding:2%;
+`
 
 class AstronomyPic extends React.Component {
   constructor(props) {
@@ -35,7 +46,12 @@ class AstronomyPic extends React.Component {
       return (
         <div>
           <Header />
-          <h1>Imagem astronômica do dia </h1>
+          <DailyImg>
+            <h1>Imagem astronômica do dia </h1>
+            <LogoImg
+            src={nasaLogo}
+            />
+          </DailyImg>
           <TextField />
           <AstroCard data={pictures}/>
           <Footer />
@@ -44,3 +60,5 @@ class AstronomyPic extends React.Component {
     }
   }
   export default AstronomyPic;
+
+  //<AstroCardStyled data={pictures}/>
