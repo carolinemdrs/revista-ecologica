@@ -28,6 +28,7 @@ const styles = {
 const CardStyled = styled.div `
 display:flex;
 padding-left:30vh;
+height:60vh;
 
 @media (max-width: 1024px) and (min-width:768px) {
   display:flex;
@@ -59,9 +60,11 @@ class  BigCard extends React.Component {
             image="https://cdn-cv.r4you.co/wp-content/uploads/2019/12/arvores-da-Mata_Atl%C3%A2ntica.jpg"
             title="Mata Atlântica"
           />
+         
           <CardContent>
+            <img src={this.props.cardImage}/>
             <Typography gutterBottom variant="h5" component="h2">
-              Mata Atlântica
+              Mata Atlântica 
             </Typography>
             <Typography component="p">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore 
@@ -75,6 +78,7 @@ class  BigCard extends React.Component {
           </Button>
         </CardActions>
       </Card>
+      
       </CardStyled>
     );
   }
@@ -88,5 +92,6 @@ function mapDispatchToProps (dispatch) {
     goToTextDetails: () => dispatch(push(routes.text))
   }
 }
+
 
 export default connect  (null, mapDispatchToProps) (withStyles(styles)(BigCard))

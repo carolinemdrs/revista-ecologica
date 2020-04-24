@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import Cards from "../components/cards";
 import {device} from "./../../src/device";
+import { connect } from "react-redux";
+import BigCard from "./bigCard"
 
 const CardContainer = styled.div`
   display:grid;
@@ -24,25 +26,27 @@ const CardContainer = styled.div`
 const CardsItem = styled(Cards) `
 
 `
-class CardsContainer extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-    };
-  }
-
-  render() {
+function CardsContainer (props) {
     return (
         <CardContainer>
-            <CardsItem />
-            <CardsItem />
-            <CardsItem />
-            <CardsItem />
-            <CardsItem />
-            <CardsItem />
+           {props.cardList.map(cardList => {
+              return <CardsItem 
+                        cardImage={cardList.cardImage} 
+                        cardTitle={cardList.cardTitle}
+                        cardText={cardList.cardText}
+            />    
+            })}
       </CardContainer>
     );
+}
+
+
+
+function mapStateToProps (state) {
+  return{
+    cardList: state.cardList,
   }
 }
 
-export default CardsContainer
+
+export default connect (mapStateToProps, null)(CardsContainer)

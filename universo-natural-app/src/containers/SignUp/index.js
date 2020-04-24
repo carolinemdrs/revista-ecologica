@@ -11,7 +11,6 @@ import { routes } from '../Router';
 import Footer from "../../components/Footer";
 
 
-
 const FormStyled = styled.form`
   width: 100%;
   height: 100vh;
@@ -134,7 +133,7 @@ class SignUp extends React.Component {
 function mapDispatchToProps(dispatch) {
   return {
     goToFeedPage: () => dispatch(push(routes.feed))
-
+      
   };
 }
 

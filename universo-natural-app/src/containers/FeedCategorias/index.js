@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 import Menu from "../../components/Menu";
 import Header from "../../components/Header";
-import Cards from "../../components/cards";
 import SubCategorias from "../../components/MenuLateral";
 import Footer from "../../components/Footer";
 import CardsContainer from "../../components/CardContainer";
@@ -69,19 +68,19 @@ class FeedByCategory extends React.Component {
   render() {
     return (
       <div>
-      <Header />
-      <ContainerGeral>
-          <DropDownMenuStyled>
-            <DropDownMenu />
-            <DropDownMenuLateral/>
-          </DropDownMenuStyled>
-          <Menu />
-          <MainContainer>
-            <SubCategorias/>
-            <CardsContainer />
-          </MainContainer> 
-          <Footer />
-      </ContainerGeral>
+        <Header />
+        <ContainerGeral>
+            <DropDownMenuStyled>
+              <DropDownMenu />
+              <DropDownMenuLateral/>
+            </DropDownMenuStyled>
+            <Menu />
+            <MainContainer>
+              <SubCategorias/>
+              <CardsContainer />
+            </MainContainer> 
+            <Footer />
+        </ContainerGeral>
       </div>
     )
   }

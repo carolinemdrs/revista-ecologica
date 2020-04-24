@@ -51,22 +51,21 @@ class Cards extends React.Component {
           <CardActionArea>
             <CardMedia
               component="img"
-              alt=" Mata Atlântica"
+              alt= {this.props.cardTitle}
               className={classes.media}
               height="140"
-              image="https://cdn-cv.r4you.co/wp-content/uploads/2019/12/arvores-da-Mata_Atl%C3%A2ntica.jpg"
-              title=" Mata Atlântica"
+              image={this.props.cardImage}
+              title= {this.props.cardTitle}
               media="screen and  (max-width: 1024){
                 height=200
               }"
             />
             <CardContent>
               <Typography gutterBottom variant="h5" component="h2">
-                Mata Atlântica
+                 {this.props.cardTitle}
               </Typography>
               <Typography component="p">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore 
-              magna aliqua.
+                  {this.props.cardText}
               </Typography>
             </CardContent>
           </CardActionArea>
